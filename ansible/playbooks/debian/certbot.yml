@@ -1,0 +1,19 @@
+---
+- name: install certbot
+  hosts: debian
+  tasks:
+    - name: instalation
+      apt:
+        name: certbot
+        state: latest
+
+    - name: instalation
+      apt:
+        name: python3-certbot-nginx
+        state: latest
+    
+    - name: service certbot
+      service:
+        name: certbot
+        state: started
+    

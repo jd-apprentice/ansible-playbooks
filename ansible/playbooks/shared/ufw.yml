@@ -1,0 +1,17 @@
+---
+- name: Allow ports for web server
+  hosts: all
+  tasks:    
+  - name: allow http
+    become: true
+    ufw:
+      rule: allow
+      port: 80
+      proto: tcp
+  
+  - name: allow https
+    become: true
+    ufw:
+      rule: allow
+      port: 443
+      proto: tcp

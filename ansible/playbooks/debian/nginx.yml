@@ -1,0 +1,14 @@
+---
+- name: install nginx
+  hosts: debian
+  tasks:
+    - name: instalation
+      apt:
+        name: nginx
+        state: latest
+    
+    - name: service nginx
+      service:
+        name: nginx
+        state: started
+    

@@ -1,0 +1,47 @@
+---
+- name: install docker
+  hosts: debian
+  tasks:
+    - name: install dependencies
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        update_cache: yes
+
+    - name: Obtain information about system
+      setup:
+        gather_subset: all
+    
+    - name: Set variables about system
+      set_fact:
+        docker_gpg_url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg}}"
+        docker_repo_url: "deb [arch={{ ansible_architecture }}] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
+    
+    - name: add key repository
+      apt_key:
+        url: "{{ docker_gpg_url }}"
+        state: present
+    
+    - name: add docker repository
+      apt_repository:
+        repo: "{{ docker_repo_url }}"
+        state: present
+        filename: docker
+    
+    - name: install docker ce
+      apt:
+        name: docker-ce
+        state: latest
+
+    - name: install docker compose
+      apt:
+        name: docker-compose-plugin
+        state: latest
+    
+    - name: service docker
+      ansible.builtin.service:
+        name: docker
+        state: started
