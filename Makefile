@@ -1,3 +1,7 @@
+.PHONY: run
+run:
+	sh scripts/check_and_run.sh || true
+
 .PHONY: playbook
 playbook:
-	sh scripts/check_and_run.sh || true
+    ansible-playbook ansible/playbooks/$(module)/$(playbook).yml -i ansible/inventory/$(inventory).ini
