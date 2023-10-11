@@ -1,5 +1,19 @@
 # A list of curated playbooks for the Ansible Galaxy 📚
 
+<p align="center">
+  <img width="500" height="500" src="https://github.com/jd-apprentice/ansible-playbooks/assets/68082746/a2b49a94-5cfa-45e6-abc7-66774c39da6d">
+</p>
+
+Find playbooks for every usage you need, from basic task like installing a package to set up entire environments
+
+# Table of Contents
+
+1. [Requirements 📋](#requirements-)
+2. [File structure 📁](#file-structure-)
+3. [Usage 🚀](#usage-)
+4. [License 📰](#license-)
+5. [Contributing 🤝](#contributing-)
+
 ## Requirements 📋
 
 - Ansible 2.15+
