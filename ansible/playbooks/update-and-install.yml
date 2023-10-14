@@ -6,4 +6,4 @@
   tasks:
     - name: Include prepare playbook
       ansible.builtin.include_tasks:
-        file: ../roles/update/tasks/main.yml
+        file: ../roles/system/tasks/debian-update.yml
