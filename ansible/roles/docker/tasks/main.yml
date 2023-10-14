@@ -1,4 +1,4 @@
-## Tried with ubuntu focal 20.04: Works
+## Tested with ubuntu focal 20.04: Works
 
 ---
 - name: install docker

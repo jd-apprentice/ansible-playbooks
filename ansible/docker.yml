@@ -1,0 +1,8 @@
+## https://chat.openai.com/share/112c9e59-7206-4be6-ac29-3418c4096ea6
+
+---
+- name: Update system and install docker
+  hosts: debian
+
+- name: Include update and install playbook
+  ansible.builtin.import_playbook: playbooks/update-and-install.yml
