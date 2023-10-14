@@ -1,8 +1,9 @@
+## Tried with ubuntu focal 20.04: Works
+
 ---
 - name: add docker group
   hosts: all
   become: yes
-
   tasks:
     - name: add docker group
       group:

@@ -1,6 +1,7 @@
 ---
 - name: install certbot
   hosts: debian
+  gather_facts: false
   tasks:
     - name: instalation
       apt:
