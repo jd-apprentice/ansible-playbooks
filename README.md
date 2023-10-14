@@ -38,6 +38,12 @@ make playbook playbook="playbook" module="module" inventory="inventory"
 
 Here you expecify the playbook, module and inventory file manually.
 
+To run an entire suite of playbooks, use the following command:
+
+```bash
+make playbook-suite playbook="playbook" inventory="inventory"
+```
+
 ## File structure 📁
 
 ```
