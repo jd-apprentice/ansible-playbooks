@@ -20,28 +20,6 @@ Find playbooks for every usage you need, from basic task like installing a packa
 - Python 3.10+
 - Make
 
-## File structure 📁
-
-```
-🌳 ansible-playbooks/
-┣ 📁 ansible/
-┃ ┣ 📁 files/ # Files to be copied to the remote host
-┃ ┣ 📁 inventory/
-┃ ┃ ┗ 📄 debian.ini # Inventory file for Debian-based distros
-┃ ┗ 📁 playbooks/
-┃   ┣ 📁 debian/ # Playbooks for Debian-based distros
-┃ ┃ ┃ ┣ 📄 certbot.yml
-┃ ┃ ┃ ┣ 📄 docker.yml
-┃ ┃ ┃ ┣ 📄 nginx.yml
-┃ ┃ ┃ ┗ 📄 prepare.yml
-┃   ┗ 📁 shared/ # Playbooks for all distros
-┃ ┃   ┣ 📄 docker-group.yml
-┃ ┃   ┗ 📄 ufw.yml
-┣ 📁 scripts/
-┃ ┗ 📄 check_and_run.sh
-┗ 📄 Makefile
-```
-
 ## Usage 🚀
 
 To run playbooks with a prompt, use the following command:
@@ -59,6 +37,45 @@ make playbook playbook="playbook" module="module" inventory="inventory"
 ```
 
 Here you expecify the playbook, module and inventory file manually.
+
+## File structure 📁
+
+```
+🌳 ansible-playbooks/
+┣ 📁 ansible/
+┃ ┣ 📁 files/
+┃ ┃ ┗ 📄 .gitkeep
+┃ ┣ 📁 inventory/
+┃ ┃ ┗ 📄 debian.ini
+┃ ┣ 📁 playbooks/
+┃ ┃ ┗ 📄 update-and-install.yml
+┃ ┣ 📁 roles/
+┃ ┃ ┣ 📁 certbot/
+┃ ┃ ┃ ┗ 📁 tasks/
+┃ ┃ ┃   ┗ 📄 install.yml
+┃ ┃ ┣ 📁 docker/
+┃ ┃ ┃ ┗ 📁 tasks/
+┃ ┃ ┃   ┣ 📄 docker-group.yml
+┃ ┃ ┃   ┗ 📄 install.yml
+┃ ┃ ┣ 📁 nginx/
+┃ ┃ ┃ ┗ 📁 tasks/
+┃ ┃ ┃   ┗ 📄 install.yml
+┃ ┃ ┗ 📁 system/
+┃ ┃   ┗ 📁 tasks/
+┃ ┃ ┃   ┣ 📄 debian-update.yml
+┃ ┃ ┃   ┗ 📄 ufw-web.yml
+┃ ┗ 📄 docker.yml
+┣ 📁 config/
+┃ ┗ 📄 aws.mk
+┣ 📁 docs/
+┃ ┗ 📄 EC2.md
+┣ 📁 scripts/
+┃ ┗ 📄 check_and_run.sh
+┣ 📄 CONTRIBUTING.md
+┣ 📄 LICENSE
+┣ 📄 Makefile
+┗ 📄 README.md
+```
 
 ## Contributing 🤝
 
