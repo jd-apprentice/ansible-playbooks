@@ -7,7 +7,7 @@ playbook:
 	ansible-playbook ansible/playbooks/$(module)/$(playbook).yml -i ansible/inventory/$(inventory).ini
 
 playbook-suite:
-	ansible-playbook ansible/$(playbook).yml -i ansible/inventory/$(inventory).ini
+	ansible-playbook ansible/suite/$(playbook).yml -i ansible/inventory/$(inventory).ini
 
 # https://www.digitalocean.com/community/tutorials/how-to-access-system-information-facts-in-ansible-playbooks
 
