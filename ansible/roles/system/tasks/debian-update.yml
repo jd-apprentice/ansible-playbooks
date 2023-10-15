@@ -4,9 +4,9 @@
   become: yes
   apt: update_cache=yes
 
-- name: Run apt-get upgrade
-  become: yes
-  apt: upgrade=dist
+# - name: Run apt-get upgrade
+#   become: yes
+#   apt: upgrade=dist
 
 - name: Run autoclean
   become: yes

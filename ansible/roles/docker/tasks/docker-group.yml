@@ -1,17 +1,13 @@
 ## Tested with ubuntu focal 20.04: Works
 
----
 - name: add docker group
-  hosts: all
-  become: yes
-  tasks:
-    - name: add docker group
-      group:
-        name: docker
-        state: present
+  group:
+    name: docker
+    state: present
 
-    - name: add ubuntu to docker group
-      user:
-        name: "{{ ansible_user }}"
-        groups: docker
-        append: yes
+- name: add ubuntu to docker group
+  become: yes
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
