@@ -6,6 +6,10 @@
 
 Find playbooks for every usage you need, from basic task like installing a package to set up entire environments
 
+# How Ansible Works ❓
+
+![image](https://github.com/jd-apprentice/ansible-playbooks/assets/68082746/35c5970c-c583-46fb-b626-625bf8bdc53b)
+
 # Table of Contents
 
 1. [Requirements 📋](#requirements-)
