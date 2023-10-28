@@ -4,14 +4,11 @@
   become: yes
   apt: update_cache=yes
 
-# - name: Run apt-get upgrade
-#   become: yes
-#   apt: upgrade=dist
-
+- name: Run autoremove
+  become: yes
+  apt: autoremove=yes
+  
 - name: Run autoclean
   become: yes
   apt: autoclean=yes
   
-- name: Run autoremove
-  become: yes
-  apt: autoremove=yes

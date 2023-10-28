@@ -1,8 +1,6 @@
-## https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_tasks_module.html#examples
-
 ---
 - name: Update the system and install Docker, Docker Compose, and add the current user to the Docker group
-  hosts: webdock
+  hosts: debian
   tasks:
     - name: Include prepare playbook
       ansible.builtin.include_tasks:
