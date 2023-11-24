@@ -1,0 +1,38 @@
+## Tested with ubuntu focal 20.04: Works
+## https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html
+
+- name: create folders in desired location
+  become: yes
+  file:
+    path: "/docker/{{ project }}/{{ app_name }}/{{ item }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+  with_items:
+    - develop
+    - master
+    - test
+    - beta
+
+- name: create docker-compose.yml
+  become: yes
+  template:
+    src: templates/docker-compose.yml.j2
+    dest: "/docker/{{ project }}/{{ app_name }}/{{ item }}/docker-compose.yml"
+  with_items:
+    - develop
+    - master
+    - test
+    - beta
+
+- name: create .env
+  become: yes
+  template:
+    src: templates/.env.j2
+    dest: "/docker/{{ project }}/{{ app_name }}/{{ item }}/.env"
+  with_items:
+    - develop
+    - master
+    - test
+    - beta

@@ -1,0 +1,20 @@
+## https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_tasks_module.html#examples
+## https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_prompts.html
+
+---
+- name: Create folders for docker-compose files
+  hosts: debian
+  vars_prompt:
+
+  - name: "project"
+    prompt: "Enter the name of the project"
+    private: no
+
+  - name: "app_name"
+    prompt: "Enter the name of the app"
+    private: no
+
+  tasks:
+    - name: Include prepare playbook
+      ansible.builtin.include_tasks:
+        file: ../roles/docker/tasks/preparation.yml

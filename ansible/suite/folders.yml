@@ -1,0 +1,9 @@
+## https://chat.openai.com/share/112c9e59-7206-4be6-ac29-3418c4096ea6
+## Tested with ubuntu focal 20.04: Works
+
+---
+- name: Create folders for docker-compose files
+  hosts: debian
+
+- name: Include prepare playbook
+  ansible.builtin.import_playbook: ../playbooks/prepare-folders.yml
